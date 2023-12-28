@@ -31,7 +31,7 @@ def _check_fp8_support(gpu_id) -> Tuple[bool, str]:
         return True, ""
     if gpu_arch < 89:    # pre-ada
         return False, "Device compute capability 8.9 or higher required for FP8 execution."
-    if get_cublasLt_version() < 120103:
+    if get_cublasLt_version() < 120100:
         return False, "CublasLt version 12.1.3.x or higher required for FP8 execution on Ada."
     if get_cuda_version() < 12010:
         return False, "Cuda version 12.1 or higher required for FP8 execution on Ada."

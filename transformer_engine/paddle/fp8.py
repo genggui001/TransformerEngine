@@ -23,7 +23,7 @@ def _check_fp8_support() -> Tuple[bool, str]:
         return False, "Device compute capability 8.9 or higher required for FP8 execution."
 
     # Special handling for Ada
-    if tex.get_cublasLt_version() < 120103:
+    if tex.get_cublasLt_version() < 120100:
         return False, "CublasLt version 12.1.3.x or higher required for FP8 execution on Ada."
     if not paddle.version.cuda():
         return False, "Cuda version 12.1 or higher required for FP8 execution on Ada."
